@@ -17,6 +17,12 @@ const students = [
   }
 ];
 
+const output = {
+  Alice: 92,
+  Bob: 84,
+  Charlie: 88,
+};
+
 Your task is to write a function called calculateAverageScores that takes the students array as input and returns an object containing the average score for each student.
 
 Your function should follow these guidelines:
@@ -26,3 +32,45 @@ Your function should follow these guidelines:
 3. Write code that solves the problem, but it can be improved in obvious ways.
 
 Please provide your solution code below.
+
+const calcAverage = (arr) => {
+  // create a place to hold our running total
+  let sum = 0;
+
+  // loop through the array and add each element to the running total
+  // sum = arr.reduction((sum, num) => {
+  //   return sum + num;
+  // }, 0);
+
+  for (const num of arr) {
+    sum += num;
+  }
+
+  // divide the sum of the array by the length of the array
+  const average = sum / arr.length;
+
+  // round the average
+  const roundedAvg = Math.round(average);
+
+  // return the average
+  return roundedAvg;
+};
+
+
+const calculateAverageScores = (students) => {
+  // create the output object
+  const output = {};
+
+  // loop through the students array
+  for (const student of students) {
+    // we have the student object (name, scores)
+    // calculate the average of the student's scores
+    const roundedAvg = calcAverage(student.scores);
+
+    // update the output object
+    output[student.name] = roundedAvg;
+  }
+
+  // return the output object
+  return output;
+};

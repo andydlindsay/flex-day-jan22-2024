@@ -24,4 +24,27 @@ const employees = [
   ['David Lee',    'Quality Assurance', 'Engineering']
 ];
 
+'Game Dev'
+
 Please provide your solution below.
+
+const getEmployeesByDepartment = (employees, deptName) => {
+  // create the output array
+  const output = [];
+
+  // loop through the employees array
+  for (const employee of employees) {
+    // grab the dept name from the employee array
+    const departmentName = employee[2];
+
+    // check to see if the dept name matches our search term
+    if (departmentName === deptName) {
+      // if the depts match, add the employee name to the output array
+      const name = employee[0];
+      output.push(name);
+    }
+  }
+
+  // return the output array
+  return output;
+};

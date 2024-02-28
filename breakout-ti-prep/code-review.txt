@@ -10,15 +10,15 @@ const students = [
   { name: "Eve", grade: 88 }
 ];
 
-function generateReport(s) {
-  let report = "";
-  for (let i = 0; i < s.length; i++) {
-    let x = s[i];
-    report = report + "Student Name: " + x.name + "\n";
-    report = report + "Grade: " + x.grade + "\n";
-    report = report + "-------------------------------------\n";
+const generateReport = (students) => {
+  for (const index in students) {
+    const student = students[index];
+    console.log(`
+      Student Name: ${student.name}
+      Grade: ${student.grade}
+      -----------------------------------
+    `);
   }
-  console.log(report);
 }
 
 Your task is to review the code and provide recommendations for improvement. Focus on the bad practices present in the code and suggest better approaches or best practices that can be followed. Consider factors such as code readability, efficiency, error handling, and overall code structure.
