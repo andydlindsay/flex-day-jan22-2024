@@ -1,4 +1,4 @@
-import { calcStatus } from '../helpers'
+import { calcStatus, isComputerCheating } from '../helpers'
 
 describe('announceResult function', () => {
   let fakeState;
@@ -33,4 +33,28 @@ describe('announceResult function', () => {
   test('returns "Waiting" if nothing is passed in', () => {
     expect(calcStatus()).toBe('Waiting');
   });
+});
+
+describe('isComputerCheating function', () => {
+
+  test('if isCheating is true, returns the winning selection', () => {
+    const playerSelection = 'Axe';
+    const isCheating = true;
+
+    const actual = isComputerCheating(playerSelection, isCheating);
+    const expected = 'Moai';
+
+    expect(actual).toBe(expected); // assert.equal(actual, expected)
+  });
+
+  test('if isCheating is false, returns a valid choice', () => {
+    const playerSelection = 'Axe';
+    const isCheating = false;
+
+    const actual = isComputerCheating(playerSelection, isCheating);
+    const options = ['Moai', 'Axe', 'Tree'];
+
+    expect(options).toContain(actual);
+  });
+
 });
